@@ -238,14 +238,17 @@
 
 .poi-modal-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-  animation: fadeIn 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
 }
 
 .poi-modal {
@@ -253,12 +256,11 @@
   border-radius: 16px;
   max-width: 500px;
   width: 100%;
-  max-height: 100%;
+  max-height: 90vh;
   overflow-y: auto;
+  position: relative;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   animation: slideUp 0.25s ease;
-  display: flex;
-  flex-direction: column;
 }
 
 .poi-modal-cerrar {
@@ -287,11 +289,10 @@
 
 .poi-modal-imagen {
   width: 100%;
-  max-height: 50vh;
+  height: 280px;
   object-fit: cover;
   display: block;
   border-radius: 16px 16px 0 0;
-  flex-shrink: 0;
 }
 
 .poi-modal-contenido {

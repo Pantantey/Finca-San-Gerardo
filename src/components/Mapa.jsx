@@ -4,7 +4,7 @@ import RouteLayer from "./RouteLayer";
 import PoiMarker from "./PoiMarker";
 import { latLngToPixel, scaleToDisplay } from "../mapUtils";
 import poiData from "../data/poiData";
-import mapa_barrio from "../assets/mapa_barrio.png";
+import mapa_barrio from "../assets/mapa.png";
 
 /**
  * Mapa que muestra la imagen de fondo, el marcador GPS y las rutas grabadas.

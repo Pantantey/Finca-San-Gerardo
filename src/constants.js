@@ -6,10 +6,10 @@
  * CAMBIA estos valores según tu imagen.
  */
 export const BOUNDS = {
-  north: 10.07746,
-  south: 10.05838,
-  west: -84.47714,
-  east: -84.4642,
+  north: 10.057998,
+  south: 10.032728,
+  west: -84.562881,
+  east: -84.517648,
 };
 
 /**
@@ -18,8 +18,8 @@ export const BOUNDS = {
  * Si cambias la imagen, actualiza estos valores.
  */
 export const MAP_IMAGE = {
-  width: 602,
-  height: 905,
+  width: 1057,
+  height: 597,
 };
 
 /**

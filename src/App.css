@@ -215,10 +215,7 @@
   z-index: 9;
 }
 
-.poi-circulo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.poi-cuadrado {
   border: 3px solid #fff;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);

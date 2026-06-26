@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="app-titulo">Mi Mapa Online</h1>
+      <h1 className="app-titulo">Mapa Prototipo</h1>
 
       {loading && <p className="app-mensaje">Obteniendo ubicación...</p>}
 

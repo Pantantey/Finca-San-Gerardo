@@ -254,9 +254,9 @@
 .poi-modal {
   background: var(--bg);
   border-radius: 16px;
-  max-width: min(420px, 85vw);
+  max-width: 500px;
   width: 100%;
-  max-height: 80dvh;
+  max-height: 90vh;
   overflow-y: auto;
   position: relative;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -289,7 +289,7 @@
 
 .poi-modal-imagen {
   width: 100%;
-  max-height: 40vh;
+  height: 280px;
   object-fit: cover;
   display: block;
   border-radius: 16px 16px 0 0;

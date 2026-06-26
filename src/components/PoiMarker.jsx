@@ -15,20 +15,24 @@ function getImageUrl(filename) {
 /**
  * Marcador de Punto de Interés (POI) en el mapa.
  * Muestra un cuadrado con esquinas redondeadas y la imagen dentro.
- * El tamaño depende del campo "tamaño" en poiData (default 40px).
+ * El tamaño base depende del campo "tamaño" en poiData (default 40px),
+ * pero se multiplica por scaleFactor para que sea proporcional al
+ * tamaño del mapa en pantalla (se ve igual en compu que en móvil).
  * Al hacer clic abre un modal con la info completa.
  *
  * @param {{
  *   poi: { id: number, titulo: string, descripcion: string, imagen: string, lat: number, lng: number, tamaño?: number },
  *   x: number,
  *   y: number,
+ *   scaleFactor: number,
  * }} props
  */
-export default function PoiMarker({ poi, x, y }) {
+export default function PoiMarker({ poi, x, y, scaleFactor = 1 }) {
   const [isOpen, setIsOpen] = useState(false);
   const imgSrc = getImageUrl(poi.imagen);
-  const size = poi.tamaño || 40;
-  const borderRadius = Math.round(size * 0.3); // 20% del tamaño para las esquinas
+  const baseSize = poi.tamaño || 40;
+  const displaySize = Math.round(baseSize * scaleFactor);
+  const borderRadius = Math.round(displaySize * 0.2); // 20% para esquinas redondeadas
 
   return (
     <>
@@ -44,8 +48,8 @@ export default function PoiMarker({ poi, x, y }) {
         <div
           className="poi-cuadrado"
           style={{
-            width: `${size}px`,
-            height: `${size}px`,
+            width: `${displaySize}px`,
+            height: `${displaySize}px`,
             borderRadius: `${borderRadius}px`,
           }}
         >

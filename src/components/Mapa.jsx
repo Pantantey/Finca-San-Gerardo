@@ -3,6 +3,7 @@ import Marcador from "./Marcador";
 import RouteLayer from "./RouteLayer";
 import PoiMarker from "./PoiMarker";
 import { latLngToPixel, scaleToDisplay } from "../mapUtils";
+import { MAP_IMAGE } from "../constants";
 import poiData from "../data/poiData";
 import mapa_barrio from "../assets/mapa.png";
 
@@ -61,6 +62,15 @@ export default function Mapa({ latitude, longitude, routes, currentRoute }) {
       ? scaleToDisplay(realPos.x, realPos.y, displaySize.width, displaySize.height)
       : null;
 
+  // Calcular factor de escala: qué tan grande se ve el mapa en pantalla
+  // respecto a su tamaño real. En el móvil el mapa es más pequeño,
+  // así que los POIs deben encogerse proporcionalmente.
+  const scaleFactor = useMemo(() => {
+    if (displaySize.width <= 0) return 1;
+    // Usamos el ancho como referencia (asumiendo que escala uniformemente con max-width: 100%)
+    return displaySize.width / MAP_IMAGE.width;
+  }, [displaySize]);
+
   // Calcular posiciones de los POIs en píxeles de pantalla
   const poisConPosicion = useMemo(() => {
     if (displaySize.width <= 0) return [];
@@ -93,7 +103,7 @@ export default function Mapa({ latitude, longitude, routes, currentRoute }) {
         />
       )}
       {poisConPosicion.map(({ poi, x, y }) => (
-        <PoiMarker key={poi.id} poi={poi} x={x} y={y} />
+        <PoiMarker key={poi.id} poi={poi} x={x} y={y} scaleFactor={scaleFactor} />
       ))}
     </div>
   );
